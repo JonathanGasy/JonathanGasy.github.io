@@ -3,76 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jonathan Pierrot — Format d'origine</title>
+<title>Jonathan Pierrot — Monteur Vidéo</title>
 <style>
 :root{--bg:#070708;--card:#121214;--border:#222227;--muted:#9a9aa0;--text:#fafafa;--accent:#ff5a1f}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;z-index:20;background:rgba(7,7,8,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-.hero{padding:48px 0 20px}
-.h1{font-size:clamp(32px,5vw,54px);line-height:.92;font-weight:900;letter-spacing:-.05em}.h1 em{color:var(--accent);font-style:normal}
-.hero p{color:var(--muted);max-width:58ch;margin:12px 0 18px}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:rgba(7,7,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:10}
+.hdr{display:flex;justify-content:space-between;padding:14px 0}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;padding:24px 0 80px}
-.card{grid-column:span 6;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column}
-.card.wide{grid-column:span 12;display:grid;grid-template-columns:1.15fr.85fr}
-@media(max-width:860px){.card,.card.wide{grid-column:span 12;grid-template-columns:1fr}}
-.thumb{position:relative;background:#000;display:grid;place-items:center;min-height:220px}
-.thumb video{width:100%;height:auto;max-height:72vh;display:block;background:#000;object-fit:contain}
-/* Tes 3 vidéos HandBrake : 1920x1080 mais flag DAR 9:16 => correction sans ré-encodage */
-.thumb video.is-anamorphic{transform:scaleX(0.31640625);transform-origin:center;width:31.64%}
-.thumb.ov{position:absolute;inset:0;display:flex;align-items:flex-end;padding:10px;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent 60%)}
-.play-mini{width:34px;height:34px;border-radius:999px;background:#fff;color:#000;display:grid;place-items:center;font-weight:900}
+.card{grid-column:span 6;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer}
+.card.wide{grid-column:span 12;display:grid;grid-template-columns:1.1fr.9fr}
+@media(max-width:800px){.card,.card.wide{grid-column:span 12;grid-template-columns:1fr}}
+/* THUMB - PAS DE ASPECT-RATIO FORCÉ, ON LAISSE LA VIDÉO DÉCIDER */
+.thumb{position:relative;background:#000;display:flex;align-items:center;justify-content:center;min-height:240px;padding:0}
+.thumb video{max-width:100%;max-height:70vh;width:auto;height:auto;display:block;background:#000;object-fit:contain}
+/* FIX ANAMORPHIQUE SANS CROP : on réduit la largeur à 31.64% au lieu de scaleX */
+.thumb video.fix-916{width:31.64%;height:auto;max-height:70vh;object-fit:contain}
+.thumb.ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),transparent 60%);display:flex;align-items:flex-end;padding:10px}
+.play{width:36px;height:36px;border-radius:999px;background:#fff;color:#000;display:grid;place-items:center;font-weight:900}
 .info{padding:12px 14px;border-top:1px solid var(--border)}
-.pill{font-size:10px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);color:var(--muted);font-weight:700}
-.pill.ia{background:var(--accent);color:#fff;border-color:var(--accent)}
-.lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.9);display:none;place-items:center;padding:16px}
+.pill{font-size:10px;padding:4px 8px;border-radius:999px;background:var(--accent);color:#fff}
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);display:none;place-items:center;padding:12px}
 .lightbox.open{display:grid}
-.box{width:min(96vw,980px);background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;max-height:92vh;display:flex;flex-direction:column}
-.box.vid{background:#000;display:grid;place-items:center;flex:1}
-.box.vid video{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain}
-.box.vid video.is-anamorphic{transform:scaleX(0.31640625);transform-origin:center}
+.box{width:min(96vw,900px);background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;max-height:92vh;display:flex;flex-direction:column}
+.box.vid{background:#000;display:flex;align-items:center;justify-content:center;flex:1;min-height:300px;padding:10px}
+.box.vid video{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;background:#000}
+.box.vid video.fix-916{width:31.64%;max-width:420px;height:auto}
 </style>
 </head>
 <body>
-<header><div class="container hdr"><div> JONATHAN PIERROT <span style="color:#ff5a1f">— Format d'origine</span></div><div style="font-size:12px;color:#9a9aa0">9:16 reste 9:16 • 1:1 reste 1:1 • 16:9 reste 16:9</div></div></header>
-<div class="container hero"><h1>Portfolio — format d'origine conservé</h1><p>Chaque vidéo garde son ratio natif. Pas de forçage 16:9.</p></div>
+<header><div class="container hdr"><div style="font-weight:900">JONATHAN PIERROT <span style="color:#ff5a1f">— Monteur Vidéo</span></div><div style="font-size:11px;color:#9a9aa0">Format d'origine • Sans crop</div></div></header>
 
-<div class="container grid">
-<div class="card wide" onclick="openVideo('pubj4')"><div class="thumb"><video class="is-anamorphic" muted loop playsinline><source src="videos/pubj4_web.mp4"></video><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><span class="pill ia">9:16 ORIGINE</span><h4>Maison Tahri — +30 ans (25s)</h4></div></div>
-<div class="card" onclick="openVideo('concentre')"><div class="thumb"><video class="is-anamorphic" muted loop playsinline><source src="videos/concentre_samir_web.mp4"></video><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><span class="pill ia">9:16 ORIGINE</span><h4>Concentré Samir (13s)</h4></div></div>
-<div class="card" onclick="openVideo('pubmaster')"><div class="thumb"><video class="is-anamorphic" muted loop playsinline><source src="videos/pubmaster1_web.mp4"></video><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><span class="pill ia">9:16 ORIGINE</span><h4>Diagnostic Toiture (29s)</h4></div></div>
-<div class="card" onclick="openVideo('takemoon')"><div class="thumb"><video muted loop playsinline><source src="videos/takemetothemoon.mp4"></video><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><h4>Take Me To The Moon</h4><p style="font-size:12px;color:#9a9aa0">Format d'origine conservé</p></div></div>
-<div class="card" onclick="openVideo('daidai')"><div class="thumb"><video muted loop playsinline><source src="videos/daidai.mp4"></video><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><h4>Daidai</h4></div></div>
-<div class="card" onclick="openVideo('bumpit')"><div class="thumb"><video muted loop playsinline><source src="videos/bumpit.mp4"></video><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><h4>Bumpit</h4></div></div>
-<div class="card" onclick="openVideo('cheche')"><div class="thumb"><video muted loop playsinline><source src="videos/cheche.mp4"></video><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><h4>Cheche</h4></div></div>
-<div class="card" onclick="openVideo('nextdate')"><div class="thumb"><video muted loop playsinline><source src="videos/nextdate.mp4"></video><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><h4>NextDate</h4></div></div>
+<div class="container grid" style="padding-top:28px">
+<div class="card wide" onclick="openVideo('pubj4')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/pubj4_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><span class="pill">9:16 SANS CROP</span><h4 style="margin-top:8px">Maison Tahri — +30 ans (25s)</h4><p style="font-size:13px;color:#9a9aa0;margin-top:4px">Format d'origine 9:16 conservé — texte "Maison Tahri" plus coupé, chevrons visibles en entier</p></div></div>
+
+<div class="card" onclick="openVideo('concentre')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/concentre_samir_web.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Concentré Samir (13s)</h4><p style="font-size:12px;color:#9a9aa0">9:16 d'origine</p></div></div>
+
+<div class="card" onclick="openVideo('pubmaster')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/pubmaster1_web.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Diagnostic Toiture (29s)</h4><p style="font-size:12px;color:#9a9aa0">9:16 d'origine</p></div></div>
+
+<div class="card" onclick="openVideo('takemoon')"><div class="thumb"><video muted loop playsinline><source src="videos/takemetothemoon.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Take Me To The Moon</h4><p style="font-size:12px;color:#9a9aa0">Format d'origine conservé</p></div></div>
+
+<div class="card" onclick="openVideo('daidai')"><div class="thumb"><video muted loop playsinline><source src="videos/daidai.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Daidai</h4></div></div>
+<div class="card" onclick="openVideo('bumpit')"><div class="thumb"><video muted loop playsinline><source src="videos/bumpit.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Bumpit</h4></div></div>
+<div class="card" onclick="openVideo('cheche')"><div class="thumb"><video muted loop playsinline><source src="videos/cheche.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Cheche</h4></div></div>
+<div class="card" onclick="openVideo('nextdate')"><div class="thumb"><video muted loop playsinline><source src="videos/nextdate.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>NextDate</h4></div></div>
 </div>
 
-<div id="lightbox" class="lightbox" onclick="if(event.target===this)closeVideo()"><div class="box"><div class="vid"><video id="lb-video" controls playsinline></video></div><div style="padding:12px;display:flex;justify-content:space-between"><div><h4 id="lb-title"></h4><p id="lb-desc" style="font-size:13px;color:#9a9aa0"></p></div><button onclick="closeVideo()" style="width:32px;height:32px;border-radius:999px;border:1px solid #222;background:#1a1a1e;color:#fff">✕</button></div></div></div>
+<div id="lightbox" class="lightbox" onclick="if(event.target===this)closeVideo()"><div class="box"><div class="vid"><video id="lb-video" controls playsinline></video></div><div style="padding:12px;display:flex;justify-content:space-between"><div><h4 id="lb-title"></h4><p id="lb-desc" style="font-size:12px;color:#9a9aa0"></p></div><button onclick="closeVideo()" style="width:30px;height:30px;border-radius:999px;border:1px solid #222;background:#111;color:#fff">✕</button></div></div></div>
 
 <script>
 const videos={
-concentre:{src:"videos/concentre_samir_web.mp4",title:"Concentré Samir",anamorphic:true},
-pubmaster:{src:"videos/pubmaster1_web.mp4",title:"Diagnostic Toiture",anamorphic:true},
-pubj4:{src:"videos/pubj4_web.mp4",title:"Savoir-faire +30 ans",anamorphic:true},
-takemoon:{src:"videos/takemetothemoon.mp4",title:"Take Me To The Moon",anamorphic:false},
-daidai:{src:"videos/daidai.mp4",title:"Daidai",anamorphic:false},
-bumpit:{src:"videos/bumpit.mp4",title:"Bumpit",anamorphic:false},
-cheche:{src:"videos/cheche.mp4",title:"Cheche",anamorphic:false},
-nextdate:{src:"videos/nextdate.mp4",title:"NextDate",anamorphic:false}
+concentre:{src:"videos/concentre_samir_web.mp4",title:"Concentré Samir",fix:true},
+pubmaster:{src:"videos/pubmaster1_web.mp4",title:"Diagnostic Toiture",fix:true},
+pubj4:{src:"videos/pubj4_web.mp4",title:"Savoir-faire +30 ans",fix:true},
+takemoon:{src:"videos/takemetothemoon.mp4",title:"Take Me To The Moon",fix:false},
+daidai:{src:"videos/daidai.mp4",title:"Daidai",fix:false},
+bumpit:{src:"videos/bumpit.mp4",title:"Bumpit",fix:false},
+cheche:{src:"videos/cheche.mp4",title:"Cheche",fix:false},
+nextdate:{src:"videos/nextdate.mp4",title:"NextDate",fix:false}
 };
 function openVideo(id){
   const v=videos[id]; if(!v) return;
   const video=document.getElementById('lb-video');
-  video.className = v.anamorphic? 'is-anamorphic' : '';
+  video.className = v.fix? 'fix-916' : '';
   video.innerHTML=`<source src="${v.src}" type="video/mp4">`;
   document.getElementById('lb-title').textContent=v.title;
   document.getElementById('lightbox').classList.add('open');
   video.load(); video.play().catch(()=>{});
 }
-function closeVideo(){const lb=document.getElementById('lightbox');const video=document.getElementById('lb-video');video.pause();lb.classList.remove('open');}
+function closeVideo(){document.getElementById('lightbox').classList.remove('open');document.getElementById('lb-video').pause();}
 </script>
 </body>
 </html>
