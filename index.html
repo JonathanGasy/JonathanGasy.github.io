@@ -88,19 +88,52 @@ code{background:#1e1e1e;border:1px solid var(--border);padding:2px 6px;border-ra
 </div>
 </div>
 <div class="grid" id="grid">
-<!-- 2 NOUVELLES VIDÉO IA -->
+<!-- 3 NOUVELLES VIDÉO IA -->
+<style>
+/* FIX 9:16 NICKEL - sans crop */
+.vcard[data-cat="Video IA"] .vmedia,
+.vcard[data-cat="Ads"] .vmedia{
+  aspect-ratio:9/16;
+  max-width:380px;
+  margin:0 auto;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:16px;
+}
+.vcard[data-cat="Video IA"] .vmedia video,
+.vcard[data-cat="Ads"] .vmedia video{
+  height:100%;
+  width:auto;
+  max-width:none;
+  object-fit:contain;
+  background:#000;
+}
+/* Fix anamorphique HandBrake 1920x1080 SAR 81:256 => vrai 9:16 */
+.vcard[data-cat="Video IA"] .vmedia video,
+.vcard[data-cat="Ads"] .vmedia video{
+  transform:scaleX(0.31640625);
+  transform-origin:center;
+}
+.vcard .vmedia video::-webkit-media-controls-panel{background:rgba(0,0,0,.4)}
+</style>
+
 <div class="vcard feat" data-cat="Video IA">
-<div class="vmedia"><video controls preload="metadata" poster="videos/thumb_samir2.jpg"><source src="videos/concentre_samir_web.mp4" type="video/mp4"><source src="videos/Concentré_Samir_web.mp4" type="video/mp4"></video></div>
-<div class="vinfo"><div class="tags"><span class="tag ia">VIDÉO IA</span><span class="tag n">NOUVEAU</span><span class="tag">13s</span></div><h4>Concentré_Samir - Artisan Couvreur</h4><p>Concentration maximale / réglage millimétré / alignement à la perfection</p></div>
+<div class="vmedia"><video controls preload="metadata" poster="videos/thumb_samir2.jpg"><source src="videos/Concentré_Samir_web.mp4" type="video/mp4"><source src="videos/concentre_samir_web.mp4" type="video/mp4"></video></div>
+<div class="vinfo"><div class="tags"><span class="tag ia">VIDÉO IA</span><span class="tag n">NOUVEAU</span><span class="tag">13s</span></div><h4>Concentré Samir - Artisan Couvreur</h4><p>Concentration maximale / réglage millimétré / alignement à la perfection</p></div>
 </div>
+
 <div class="vcard feat" data-cat="Video IA">
-<div class="vmedia"><video controls preload="metadata" poster="videos/thumb_pubmaster.jpg"><source src="videos/pubmaster1_web.mp4" type="video/mp4"><source src="videos/Pubmaster1_web.mp4" type="video/mp4"></video></div>
+<div class="vmedia"><video controls preload="metadata" poster="videos/thumb_pubmaster.jpg"><source src="videos/Pubmaster1_web.mp4" type="video/mp4"><source src="videos/pubmaster1_web.mp4" type="video/mp4"></video></div>
 <div class="vinfo"><div class="tags"><span class="tag ia">VIDÉO IA</span><span class="tag n">NOUVEAU</span><span class="tag">29s</span><span class="tag">Pub</span></div><h4>Maison Tahri & fils - Diagnostic Toiture</h4><p>Votre toiture est en train de se dégrader... diagnostic gratuit</p></div>
 </div>
+
 <div class="vcard feat" data-cat="Ads">
-<div class="vmedia"><video controls preload="metadata" poster="videos/thumb_pubmaster.jpg"><source src="videos/Pubj4_web.mp4" type="video/mp4"><source src="videos/Pubj4_web.mp4" type="video/mp4"></video></div>
-<div class="vinfo"><div class="tags"><span class="tag ia">Ads</span><span class="tag n">NOUVEAU</span><span class="tag">29s</span><span class="tag">Pub</span></div><h4>Maison Tahri & fils - Diagnostic Toiture</h4><p>Votre toiture est en train de se dégrader... diagnostic gratuit</p></div>
-</div> 
+<div class="vmedia"><video controls preload="metadata" poster="videos/thumb_pubj4.jpg"><source src="videos/Pubj4_web.mp4" type="video/mp4"><source src="videos/pubj4_web.mp4" type="video/mp4"></video></div>
+<div class="vinfo"><div class="tags"><span class="tag ia">Ads</span><span class="tag n">NOUVEAU</span><span class="tag">25s</span><span class="tag">Pub</span></div><h4>Maison Tahri & fils - Savoir-faire +30 ans</h4><p>Travail soigné / Maîtrise sans égal / Finition Nickel</p></div>
+</div>
 <!-- 6 ANCIENNES RESTAURÉES -->
 <div class="vcard" data-cat="Creatif"><div class="vmedia"><video controls preload="metadata"><source src="videos/daidai.mp4" type="video/mp4"></video></div><div class="vinfo"><div class="tags"><span class="tag">Créatif</span></div><h4>Daidai</h4><p>Pulsia Extreme Expedition</p></div></div>
 <div class="vcard" data-cat="Autre"><div class="vmedia"><video controls preload="metadata"><source src="videos/bumpit.mp4" type="video/mp4"></video></div><div class="vinfo"><div class="tags"><span class="tag">Autre</span></div><h4>Bumpit</h4><p>Ancien projet</p></div></div>
