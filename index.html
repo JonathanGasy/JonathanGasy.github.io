@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jonathan Pierrot — Monteur Vidéo | Pub & Vidéo IA</title>
+<title>Jonathan Pierrot — Monteur Vidéo</title>
 <style>
 :root{--bg:#070708;--card:#111113;--border:#232326;--muted:#9aa0a6;--text:#f6f6f7;--accent:#ff5a1f}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -12,19 +12,18 @@ body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-ser
 header{position:sticky;top:0;z-index:30;background:rgba(7,7,8,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
 .logo{font-weight:900}.logo span{color:var(--accent)}
-.hero{padding:56px 0 24px;display:grid;grid-template-columns:1.15fr.85fr;gap:28px;align-items:center}
+.hero{padding:48px 0 20px;display:grid;grid-template-columns:1.15fr.85fr;gap:24px;align-items:center}
 @media(max-width:880px){.hero{grid-template-columns:1fr}}
-.kicker{display:inline-flex;gap:8px;align-items:center;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:6px 12px;border-radius:999px;background:var(--card)}
-.dot{width:6px;height:6px;background:#22c55e;border-radius:999px}
 .h1{font-size:clamp(36px,5.8vw,60px);line-height:.9;font-weight:900;letter-spacing:-.05em}.h1 em{color:var(--accent);font-style:normal}
-.hero p{color:var(--muted);max-width:54ch;margin:14px 0 20px}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;padding:24px 0 80px}
-.card{grid-column:span 6;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column}
+.card{grid-column:span 6;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:.18s}
+.card:hover{border-color:#333;transform:translateY(-1px)}
 .card.wide{grid-column:span 12;display:grid;grid-template-columns:1.2fr.8fr}
 @media(max-width:860px){.card,.card.wide{grid-column:span 12;grid-template-columns:1fr}}
-.thumb{position:relative;background:#000;display:flex;align-items:center;justify-content:center;min-height:240px}
-.thumb video{max-width:100%;max-height:68vh;width:auto;height:auto;display:block;object-fit:contain;background:#000}
-.thumb video.fix-916{width:31.64%;height:auto}
+.thumb{position:relative;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:280px}
+.thumb video{max-width:100%;max-height:70vh;width:auto;height:auto;display:block;background:#000;object-fit:contain}
+/* FIX NICKEL anamorphique 1920x1080 SAR 81:256 => vrai 9:16 qui remplit */
+.thumb video.fix-916{width:316.40625%;max-width:none;height:auto;transform:scaleX(0.31640625);transform-origin:center;object-fit:contain}
 .ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),transparent 60%);display:flex;align-items:flex-end;padding:10px}
 .play{width:36px;height:36px;border-radius:999px;background:#fff;color:#000;display:grid;place-items:center;font-weight:900}
 .info{padding:12px 14px;border-top:1px solid var(--border)}
@@ -32,31 +31,33 @@ header{position:sticky;top:0;z-index:30;background:rgba(7,7,8,.9);backdrop-filte
 .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);display:none;place-items:center;padding:12px}
 .lightbox.open{display:grid}
 .box{width:min(96vw,900px);background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;max-height:92vh;display:flex;flex-direction:column}
-.box.vid{background:#000;display:flex;align-items:center;justify-content:center;flex:1;min-height:300px;padding:10px}
+.box.vid{background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:1;min-height:320px;padding:10px}
 .box.vid video{max-width:100%;max-height:80vh;width:auto;height:auto;object-fit:contain}
-.box.vid video.fix-916{width:31.64%;max-width:420px}
+.box.vid video.fix-916{width:316.40625%;max-width:none;max-width:420px;width:316.40625%;transform:scaleX(0.31640625);transform-origin:center}
 </style>
 </head>
 <body>
-<header><div class="container hdr"><div class="logo">JONATHAN PIERROT <span style="color:#ff5a1f">— Monteur Vidéo</span></div><div style="font-size:12px;color:#9aa0a6">Format d'origine • Noms corrigés</div></div></header>
-<div class="container hero"><div><div class="kicker"><span class="dot"></span> Format d'origine conservé • 9:16 reste 9:16</div><div class="h1">Édition vidéo<br>& conception<br><em>publicitaire</em></div><p>Chaque vidéo garde son ratio natif. Noms de fichiers ajustés à ton dossier videos/ actuel.</p></div><div class="card" style="grid-column:auto" onclick="openVideo('pubj4')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/Pubj4_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><span class="pill">9:16 SANS CROP</span><h4>Maison Tahri — +30 ans</h4></div></div></div>
+<header><div class="container hdr"><div class="logo">JONATHAN PIERROT <span style="color:#ff5a1f">— Monteur Vidéo</span></div><div style="font-size:12px;color:#9aa0a6">Format d'origine nickel • 9:16 plein écran</div></div></header>
+
+<div class="container hero">
+<div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9aa0a6;border:1px solid #232326;padding:6px 12px;border-radius:999px;display:inline-flex;gap:8px"><span style="width:6px;height:6px;background:#22c55e;border-radius:999px;display:inline-block"></span> Format d'origine • Sans crop • Sans tiny</div>
+<div class="h1" style="margin-top:12px">Édition vidéo<br>& conception<br><em style="color:#ff5a1f;font-style:normal">publicitaire</em></div>
+<p style="color:#9aa0a6;margin-top:12px;max-width:54ch">Chaque vidéo garde son ratio natif. Fix anamorphique qui remplit, pas tiny.</p></div>
+<div class="card" style="grid-column:auto" onclick="openVideo('pubj4')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/Pubj4_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><span class="pill">9:16 NICKEL</span><h4>Maison Tahri — +30 ans</h4></div></div>
+</div>
 
 <div class="container grid">
-<div class="card wide" onclick="openVideo('pubj4')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/Pubj4_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Maison Tahri & fils — +30 ans (25s)</h4><p style="font-size:13px;color:#9aa0a6">Pubj4_web.mp4 — format vertical 9:16 d'origine</p></div></div>
+<div class="card wide" onclick="openVideo('pubj4')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/Pubj4_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Maison Tahri & fils — +30 ans (25s)</h4><p style="font-size:13px;color:#9aa0a6">Pubj4_web.mp4 — 9:16 plein, plus de bande noire, plus de crop</p></div></div>
 
-<div class="card" onclick="openVideo('concentre')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/Concentré_Samir_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Concentré Samir (13s)</h4><p style="font-size:12px;color:#9aa0a6">Concentré_Samir_web.mp4</p></div></div>
+<div class="card" onclick="openVideo('concentre')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/Concentré_Samir_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Concentré Samir (13s)</h4></div></div>
 
-<div class="card" onclick="openVideo('pubmaster')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/Pubmaster1_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Diagnostic Toiture (29s)</h4><p style="font-size:12px;color:#9aa0a6">Pubmaster1_web.mp4</p></div></div>
+<div class="card" onclick="openVideo('pubmaster')"><div class="thumb"><video class="fix-916" muted loop playsinline><source src="videos/Pubmaster1_web.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Diagnostic Toiture (29s)</h4></div></div>
 
-<div class="card" onclick="openVideo('takemoon')"><div class="thumb"><video muted loop playsinline><source src="videos/takemetothemoon.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Take Me To The Moon</h4></div></div>
-
-<div class="card" onclick="openVideo('daidai')"><div class="thumb"><video muted loop playsinline><source src="videos/daidai.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Daidai</h4></div></div>
-
-<div class="card" onclick="openVideo('bumpit')"><div class="thumb"><video muted loop playsinline><source src="videos/bumpit.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Bumpit</h4></div></div>
-
-<div class="card" onclick="openVideo('cheche')"><div class="thumb"><video muted loop playsinline><source src="videos/cheche.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Cheche</h4></div></div>
-
-<div class="card" onclick="openVideo('nextdate')"><div class="thumb"><video muted loop playsinline><source src="videos/nextdate.mp4" type="video/mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>NextDate</h4></div></div>
+<div class="card" onclick="openVideo('takemoon')"><div class="thumb"><video muted loop playsinline><source src="videos/takemetothemoon.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Take Me To The Moon</h4></div></div>
+<div class="card" onclick="openVideo('daidai')"><div class="thumb"><video muted loop playsinline><source src="videos/daidai.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Daidai</h4></div></div>
+<div class="card" onclick="openVideo('bumpit')"><div class="thumb"><video muted loop playsinline><source src="videos/bumpit.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Bumpit</h4></div></div>
+<div class="card" onclick="openVideo('cheche')"><div class="thumb"><video muted loop playsinline><source src="videos/cheche.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>Cheche</h4></div></div>
+<div class="card" onclick="openVideo('nextdate')"><div class="thumb"><video muted loop playsinline><source src="videos/nextdate.mp4"></video><div class="ov"><div class="play">▶</div></div></div><div class="info"><h4>NextDate</h4></div></div>
 </div>
 
 <div id="lightbox" class="lightbox" onclick="if(event.target===this)closeVideo()"><div class="box"><div class="vid"><video id="lb-video" controls playsinline></video></div><div style="padding:12px;display:flex;justify-content:space-between"><h4 id="lb-title"></h4><button onclick="closeVideo()" style="width:30px;height:30px;border-radius:999px;border:1px solid #222;background:#111;color:#fff">✕</button></div></div></div>
