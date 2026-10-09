@@ -15,7 +15,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(7,7,8,.85);backdrop-filt
 .hdr{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
 .logo{font-weight:900;letter-spacing:-.03em}
 .logo span{color:var(--accent)}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;padding:72px 0 32px;align-items:center}
+.hero{display:grid;grid-template-columns:1.1fr.9fr;gap:32px;padding:72px 0 32px;align-items:center}
 @media(max-width:860px){.hero{grid-template-columns:1fr}}
 .kicker{display:inline-flex;gap:8px;align-items:center;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:6px 12px;border-radius:999px;background:var(--card);margin-bottom:16px}
 .dot{width:6px;height:6px;background:#22c55e;border-radius:999px;box-shadow:0 0 0 4px rgba(34,197,94,.15)}
@@ -28,7 +28,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(7,7,8,.85);backdrop-filt
 .btn-g{background:var(--card);color:var(--text)}
 .showreel{position:relative;background:var(--card);border:1px solid var(--border);border-radius:28px;overflow:hidden;aspect-ratio:16/11;cursor:pointer}
 .showreel video{width:100%;height:100%;object-fit:cover}
-.showreel .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:999px;background:#fff;color:#000;display:grid;place-items:center;font-weight:900;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.showreel.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:999px;background:#fff;color:#000;display:grid;place-items:center;font-weight:900;box-shadow:0 20px 40px rgba(0,0,0,.5)}
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:20px 0 8px}
 @media(max-width:900px){.services{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.services{grid-template-columns:1fr}}
@@ -45,11 +45,11 @@ header{position:sticky;top:0;z-index:20;background:rgba(7,7,8,.85);backdrop-filt
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
 .card{grid-column:span 6;background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;cursor:pointer;transition:.2s}
 .card:hover{transform:translateY(-2px);border-color:#2e2e33}
-.card.wide{grid-column:span 12;display:grid;grid-template-columns:1.25fr .75fr}
+.card.wide{grid-column:span 12;display:grid;grid-template-columns:1.25fr.75fr}
 @media(max-width:900px){.card,.card.wide{grid-column:span 12;grid-template-columns:1fr}}
 .thumb{aspect-ratio:16/9;background:#0e0e10;position:relative;overflow:hidden}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb .ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent 60%);display:flex;align-items:flex-end;padding:12px}
+.thumb.ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent 60%);display:flex;align-items:flex-end;padding:12px}
 .play-mini{width:38px;height:38px;border-radius:999px;background:rgba(255,255,255,.92);color:#000;display:grid;place-items:center;font-weight:900;font-size:13px}
 .info{padding:14px 16px}
 .top{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
@@ -61,15 +61,16 @@ header{position:sticky;top:0;z-index:20;background:rgba(7,7,8,.85);backdrop-filt
 .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);display:none;place-items:center;padding:20px}
 .lightbox.open{display:grid}
 .box{width:min(980px,100%);background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden}
-.box .vid{aspect-ratio:16/9;background:#000}
-.box .vid video{width:100%;height:100%}
-.box .txt{padding:16px 20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.box.vid{aspect-ratio:16/9;background:#000}
+.box.vid video{width:100%;height:100%}
+.box.txt{padding:16px 20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .close{width:36px;height:36px;border-radius:999px;border:1px solid var(--border);background:var(--card2);color:#fff;display:grid;place-items:center;cursor:pointer}
 footer{border-top:1px solid var(--border);padding:22px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:13px}
 </style>
 </head>
 <body>
 <header><div class="container hdr"><div class="logo">JONATHAN PIERROT <span>— Monteur Vidéo</span></div><div style="font-size:12px;color:var(--muted)">Antananarivo • Remote • 8 projets</div></div></header>
+
 <div class="container hero">
 <div>
 <div class="kicker"><span class="dot"></span> Disponible • Nouvelle expertise Vidéo IA</div>
@@ -82,27 +83,40 @@ footer{border-top:1px solid var(--border);padding:22px 0;display:flex;justify-co
 <div class="play">▶</div>
 </div>
 </div>
+
 <div class="container services">
 <div class="svc"><h3>Conception pub</h3><p>Vidéos publicitaires pensées pour votre cible.</p></div>
 <div class="svc"><h3>Édition vidéo</h3><p>Du dérushage à l'export final.</p></div>
 <div class="svc"><h3>Short / Réel</h3><p>Formats courts calibrés pour l'algo.</p></div>
 <div class="svc new"><h3>Vidéo IA</h3><p>Montage ultra-rythmé IA + textes animés. 3 nouvelles vidéos pour toiture.</p></div>
 </div>
+
 <div id="work" class="container section">
 <div class="sec-h"><h2>Selected Work</h2><div class="filters"><button class="active" data-f="all">Tous (8)</button><button data-f="Video IA">Vidéo IA (3)</button><button data-f="Sport">Sport</button><button data-f="Creatif">Créatif</button></div></div>
+
 <div class="grid">
 <div class="card wide" data-cat="Video IA" onclick="openVideo('pubj4')"><div class="thumb"><img src="videos/thumb_pubj4.jpg" alt="Savoir-faire"><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><div class="top"><span class="pill ia">VIDÉO IA</span><span class="pill new">NOUVEAU</span><span class="pill">25s • Savoir-faire</span></div><h4>Maison Tahri & fils — +30 ans d'expérience</h4><p>Travail soigné / Maîtrise sans égal / Sens du détail / Finition Nickel. La vidéo la plus complète.</p></div></div>
+
 <div class="card" data-cat="Video IA" onclick="openVideo('concentre')"><div class="thumb"><img src="videos/thumb_samir2.jpg"><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><div class="top"><span class="pill ia">VIDÉO IA</span><span class="pill new">NOUVEAU</span></div><h4>Concentré Samir</h4><p>Concentration maximale / réglage millimétré / alignement parfait - 13s</p></div></div>
+
 <div class="card" data-cat="Video IA" onclick="openVideo('pubmaster')"><div class="thumb"><img src="videos/thumb_pubmaster.jpg"><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><div class="top"><span class="pill ia">VIDÉO IA</span><span class="pill new">NOUVEAU</span></div><h4>Diagnostic Toiture</h4><p>Votre toiture est en train de se dégrader... diagnostic gratuit</p></div></div>
+
 <div class="card" data-cat="Sport" onclick="openVideo('takemoon')"><div class="thumb"><img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=800" alt=""><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><div class="top"><span class="pill">Sport extrême</span></div><h4>Take Me To The Moon</h4><p>Pulsia Extreme Expedition</p></div></div>
+
 <div class="card" data-cat="Creatif" onclick="openVideo('daidai')"><div class="thumb"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800"><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><div class="top"><span class="pill">Créatif</span></div><h4>Daidai</h4><p>Pulsia Extreme Expedition</p></div></div>
+
 <div class="card" data-cat="Autre" onclick="openVideo('bumpit')"><div class="thumb"><div style="width:100%;height:100%;display:grid;place-items:center;background:#101012;color:#555;font-size:13px">bumpit.mp4</div><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><div class="top"><span class="pill">Autre</span></div><h4>Bumpit</h4></div></div>
+
 <div class="card" data-cat="Autre" onclick="openVideo('cheche')"><div class="thumb"><div style="width:100%;height:100%;display:grid;place-items:center;background:#101012;color:#555">cheche.mp4</div><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><div class="top"><span class="pill">Autre</span></div><h4>Cheche</h4></div></div>
+
 <div class="card" data-cat="Autre" onclick="openVideo('nextdate')"><div class="thumb"><div style="width:100%;height:100%;display:grid;place-items:center;background:#101012;color:#555">nextdate.mp4</div><div class="ov"><div class="play-mini">▶</div></div></div><div class="info"><div class="top"><span class="pill">Autre</span></div><h4>NextDate</h4></div></div>
 </div>
 </div>
+
 <div id="lightbox" class="lightbox" onclick="if(event.target===this)closeVideo()"><div class="box"><div class="vid"><video id="lb-video" controls playsinline></video></div><div class="txt"><div><h4 id="lb-title"></h4><p id="lb-desc" style="color:#9a9aa0;font-size:13px;margin-top:4px"></p></div><button class="close" onclick="closeVideo()">✕</button></div></div></div>
+
 <footer class="container"><div>© Jonathan Pierrot — Monteur Vidéo • Antananarivo • Remote</div><div><a href="https://instagram.com/jopgedeco" target="_blank">@jopgedeco</a> • <a href="https://instagram.com/gaspard.earn" target="_blank">@gaspard.earn</a></div></footer>
+
 <script>
 const videos={
 concentre:{src:"videos/concentre_samir.mp4",title:"Concentré Samir - Artisan Couvreur",desc:"13s - Concentration maximale / réglage millimétré / alignement parfait"},
